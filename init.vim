@@ -41,11 +41,11 @@ call plug#end()
 
 " Path to Ranger (not usually needed, but WSL doesn't resolve PATH correctly)
 " TODO: Check Me
-"let g:rnvimr_ranger_cmd = '~/.local/bin/ranger'
+let g:rnvimr_ranger_cmd = '~/.local/bin/ranger'
 
 " Font
 " TODO: Check Me
-set guifont=Cascadia\ Code:h7
+set guifont=CaskaydiaCove\ Nerd\ Font:h16
 
 " Remember previous window size
 let neovide_remember_window_size = v:true
@@ -59,7 +59,7 @@ let g:neovide_cursor_vfx_mode = "sonicboom"
 " Path to NodeJS for Coc
 " (only needed if using nvm, comment out if using system NodeJS)
 " TODO: Check Me
-let g:coc_node_path = '~/.nvm/versions/node/v16.8.0/bin/node'
+"let g:coc_node_path = '~/.nvm/versions/node/v16.3.0/bin/node'
 
 " Clipboard (y/p read/write from OS clipboard)
 set clipboard=unnamedplus
@@ -233,14 +233,14 @@ set noshowmode
 set number
 
 " Convert tab to spaces
-set expandtab
+"set expandtab
 
 " Do NOT convert tab to spaces (uncomment to enable)
-"set noexpandtab
+set noexpandtab
 
 " Do NOT fix or force ending newline (uncomment to enable)
-"set nofixeol
-"set noeol
+set nofixeol
+set noeol
 
 " Auto-indent
 set smartindent
