@@ -1,0 +1,57 @@
+{
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "html",
+    "json"
+  ],
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "all",
+  "prettier.printWidth": 70,
+  "prettier.arrowParens": "always",
+  "prettier.bracketSpacing": true,
+  "prettier.endOfLine": "lf",
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  "prettier.insertPragma": false,
+  "prettier.jsxBracketSameLine": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.proseWrap": "preserve",
+  "prettier.quoteProps": "as-needed",
+  "prettier.requirePragma": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  "eslint.onIgnoredFiles": "warn",
+  "eslint.options": {
+    "envs": ["es6", "browser", "node"],
+    "plugins": ["prettier"],
+    "baseConfig": {
+      "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "prettier/prettier"
+      ]
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "diagnostic.enable": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.showUnused": true,
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.enableSign": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.showDeprecated": true,
+  "diagnostic.enableHighlightLineNumber": true,
+  "diagnostic.virtualTextCurrentLineOnly": true,
+  "coc.preferences.enableMessageDialog": true,
+  "suggest.enablePreview": true,
+  "suggest.detailField": "preview",
+  "git.realtimeGutters": true
+}
