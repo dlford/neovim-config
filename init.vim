@@ -1,120 +1,11 @@
-function! _blockcomment()
-
-  INSTRUCTIONS
-  ------------
-
-  1.) Place this file here: >>> ~/.config/nvim/init.vim <<<
-	2.) Give this file a once-over, change the path to NodeJS under Configure Plugins below for example
-  3.) Install the dependencies listed blow
-  4.) Open NeoVIM, run :PlugInstall, then install Coc plugins as below
-  5.) Create the Coc settings file as below
-
-  DEPS
-  ----
-
-  neovim >= 0.5 (Ubuntu - sudo add-apt-repository ppa:neovim-ppa/unstable)
-	nerd font (https://www.nerdfonts.com/font-downloads)
-  NodeJS >= 16
-    npm i -g yarn eslint@5 prettier eslint-plugin-prettier eslint-config-prettier
-		(eslint 6 currently has trouble resolving plugins from global node_modules)
-  fzf requires silversearcher-ag and ripgrep
-  OS clipboard functions require handler (e.g. xclip on linux, or win32yank on Windows)
-  rnvimr file manager requires Ranger, pynvim, python3.6, and optionally ueberzug
-    yay -S ranger python-pynvim ueberzug OR pip3 install ranger-fm pynvim ueberzug
-    run `nvim +'chekhealth rnvimr'` from command line to validate
-  Neovide GUI (Optional)
-  
-  Notes
-  -----
-
-	1.) For Neovide, set the font below to a valid Nerd Font on your system, the `h` value is font size, excape spaces with `\`
-  2.) For Neovide on Windows, download win32yank (https://github.com/equalsraf/win32yank) and put the exe in WSL at `/usr/local/bin` (and `chmod +x` it)
-	3.) For Neovide on Windows, set the correct path to Ranger below
-
-  Coc Plugins
-  -----------
-  :CocInstall coc-tsserver coc-eslint coc-html coc-css coc-prettier coc-json coc-markdownlint coc-highlight coc-jest coc-marketplace
-  :CocInstall coc-yaml coc-toml coc-xml coc-tailwindcss coc-svg coc-styled-components coc-docker coc-snippets coc-git
-
-  Coc Config: >>> ~/.config/nvim/coc-settings.json <<<
-  ----------
-
-  {
-    "eslint.autoFixOnSave": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-      "css",
-      "markdown",
-      "html",
-      "json"
-    ],
-    "prettier.useTabs": false,
-    "prettier.tabWidth": 2,
-    "prettier.semi": true,
-    "prettier.singleQuote": false,
-    "prettier.trailingComma": "all",
-    "prettier.printWidth": 70,
-    "prettier.arrowParens": "always",
-    "prettier.bracketSpacing": true,
-    "prettier.endOfLine": "lf",
-    "prettier.htmlWhitespaceSensitivity": "strict",
-    "prettier.jsxBracketSameLine": false,
-    "prettier.jsxSingleQuote": true,
-    "prettier.proseWrap": "preserve",
-    "eslint.onIgnoredFiles": "warn",
-    "eslint.options": {
-      "envs": ["es6", "browser", "node"],
-      "plugins": ["prettier"],
-      "baseConfig": {
-        "extends": [
-          "eslint:recommended",
-          "plugin:prettier/recommended",
-          "prettier/prettier"
-        ]
-      },
-      "rules": {
-        "prettier/prettier": "error"
-      }
-    },
-    "diagnostic.enable": true,
-    "diagnostic.checkCurrentLine": true,
-    "diagnostic.errorSign": "",
-    "diagnostic.warningSign": "",
-    "diagnostic.infoSign": "",
-    "diagnostic.showUnused": true,
-    "diagnostic.enableMessage": "jump",
-    "diagnostic.enableSign": true,
-    "diagnostic.virtualText": true,
-    "diagnostic.showDeprecated": true,
-    "diagnostic.enableHighlightLineNumber": true,
-    "diagnostic.virtualTextCurrentLineOnly": true,
-    "coc.preferences.enableMessageDialog": true,
-    "suggest.enablePreview": true,
-    "suggest.detailField": "preview",
-    "git.realtimeGutters": true
-  }
-
-endfunction
-
 " Install Plugged on start
 " ------------------------
-
-"--LINUX ONLY--
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-"--WIN ONLY--
-"md ~\AppData\Local\nvim\autoload
-"$uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-"(New-Object Net.WebClient).DownloadFile(
-"  $uri,
-"  $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
-"    "~\AppData\Local\nvim\autoload\plug.vim"
-"  )
-")
 
 " Install Plugins
 " ---------------
@@ -145,15 +36,30 @@ call plug#begin('~/.vim/plugged')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } "Read More - https://github.com/glacambre/firenvim
 call plug#end()
 
+" Neovide GUI config
+" ------------------
+
+" Path to Ranger (not usually needed, but WSL doesn't resolve PATH correctly)
+" TODO: Check Me
+"let g:rnvimr_ranger_cmd = '~/.local/bin/ranger'
+
+" Font
+" TODO: Check Me
+set guifont=Cascadia\ Code:h7
+
+" Remember previous window size
+let neovide_remember_window_size = v:true
+
+" Cursor animation
+let g:neovide_cursor_vfx_mode = "sonicboom"
+
 " Configure Plugins
 " -----------------
 
 " Path to NodeJS for Coc
 " (only needed if using nvm, comment out if using system NodeJS)
+" TODO: Check Me
 let g:coc_node_path = '~/.nvm/versions/node/v16.8.0/bin/node'
-
-" Path to Ranger (only needed for Neovide GUI on Windows)
-"let g:rnvimr_ranger_cmd = '~/.local/bin/ranger'
 
 " Clipboard (y/p read/write from OS clipboard)
 set clipboard=unnamedplus
@@ -212,8 +118,6 @@ syntax on
 colorscheme one
 set background=dark
 highlight ScrollView ctermbg=159 guibg=LightCyan " Scrollbar color
-" Used by Neovide GUI
-set guifont=Cascadia\ Code:h7
 
 " Hotkeys
 " -------
@@ -369,3 +273,45 @@ if &term =~ '256color'
     " work properly when Vim is used inside tmux and GNU screen.
     set t_ut=
 endif
+
+" Speed up performance with large files by disabling
+" syntax highlighting, folding, and Coc
+" --------------------------------------------------
+fu! s:ProcessCommandList(alist)
+  for l:opt_set in a:alist
+    exe l:opt_set
+  endfor
+endfu
+let g:LargeFileSize = 1024 * 300 "300KB
+let g:MediumFileSize = 1024 * 24 "24KB
+let g:SmallFileActionsOpen=['set eventignore-=Filetype']
+let g:SmallFileActionsEnter=[]
+let g:MediumFileActionsOpen=['set eventignore-=Filetype']
+let g:MediumFileActionsEnter=[]
+let g:LargeFileActionsEnter=[]
+let g:LargeFileActionsOpen=[
+      \ 'setlocal syntax=OFF',
+      \ 'setlocal nofoldenable',
+      \ 'setlocal bufhidden=unload',
+      \ 'set eventignore+=Filetype',
+      \ 'let b:coc_enabled=0',
+      \]
+fu! s:LargeFileSupport(...)
+  if len(a:000)
+    let b:filesize=a:000[0]
+    let l:event='Open'
+  elseif exists('b:filesize')
+    let l:event='Enter'
+  else
+    return
+  endif
+  let l:size = ((b:filesize > g:LargeFileSize
+        \ || b:filesize == -2) ? 'Large' :
+        \ (b:filesize > g:MediumFileSize ? 'Medium' : 'Small'))
+  echo 'call s:ProcessCommandList(g:'.l:size.'FileActions'.l:event.')'
+  exe 'call s:ProcessCommandList(g:'.l:size.'FileActions'.l:event.')'
+endfu
+augroup LargeFile 
+  autocmd BufReadPre * silent call s:LargeFileSupport(getfsize(expand("<afile>")))
+  autocmd BufWinEnter * silent call s:LargeFileSupport()
+augroup END
