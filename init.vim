@@ -178,6 +178,9 @@ map <C-s> :CocCommand snippets.editSnippets<CR>
 " Ctrl+l: Show snippets for filetype
 map <C-l> :CocList snippets<CR>
 
+" Ctrl+h: Show/Hide hidden characters
+map <C-h> :set list!<CR>
+
 " Tab to expand snippets
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -256,6 +259,11 @@ set shiftwidth=2
 " These change the way certain filetypes are
 " handled by Prettier/ESLint/etc
 au BufNewFile,BufFilePre,BufRead *.mdx set filetype=markdown
+
+" Hidden characters
+set encoding=utf-8
+scriptencoding utf-8
+set listchars=tab:\|>,space:_,trail:_,nbsp:=,extends:>,precedes:<,eol:⏎
 
 " Theme color handlers
 " --------------------
