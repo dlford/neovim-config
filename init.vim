@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'folke/todo-comments.nvim'
   Plug 'TimUntersberger/neogit'
   Plug 'wellle/context.vim'
+  Plug 'Darazaki/indent-o-matic'
   Plug 'stephpy/vim-yaml' "Slimmed down YAML syntax for better performance
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } "Read More - https://github.com/glacambre/firenvim
 call plug#end()
