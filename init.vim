@@ -224,6 +224,12 @@ nnoremap to :tabonly<CR>
 " tm: Move tab (0-9) or (+/-0-9)
 nnoremap tm :tabm<Space>
 
+" fi: Set fold mode to indent
+nnoremap fi :set fdm=indent<CR>
+
+" fo: Set fold mode to off (expr)
+nnoremap fo :set fdm=expr<CR>
+
 " Editor Config
 " -------------
 
