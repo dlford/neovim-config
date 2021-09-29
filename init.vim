@@ -182,6 +182,15 @@ map <C-l> :CocList snippets<CR>
 " Ctrl+h: Show/Hide hidden characters
 map <C-h> :set list!<CR>
 
+" bo: Close all buffers except this one (releases some memory, use when changing projects)
+function! CloseAllBuffersButCurrent()
+  let curr = bufnr("%")
+  let last = bufnr("$")
+  if curr > 1 | silent! execute "1,".(curr-1)."bd" | endif
+  if curr < last | silent! execute (curr+1).",".last."bd" | endif
+endfunction
+nnoremap bo :call CloseAllBuffersButCurrent()<CR>
+
 " Tab to expand snippets
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
