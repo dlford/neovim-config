@@ -4,7 +4,7 @@
 
 1. Clone this repository to `~/.config/nvim/`
 2. Give `init.vim` a once-over, change the path to NodeJS under Configure Plugins below for example (I've added the comment ` TODO: Check Me` to the critical touch points)
-3. Install the dependencies listed blow
+3. Install the dependencies listed below
 4. Open NeoVIM, run :PlugInstall, then install Coc plugins as below
 
 ### Dependencies
