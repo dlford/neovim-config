@@ -46,7 +46,7 @@ call plug#end()
 
 " Font
 " TODO: Check Me
-set guifont=Cascadia\ Code:h7
+set guifont=CaskaydiaCove\ Nerd\ Font\ Mono\ Book:h12
 
 " Remember previous window size
 let neovide_remember_window_size = v:true
@@ -60,7 +60,7 @@ let g:neovide_cursor_vfx_mode = "sonicboom"
 " Path to NodeJS for Coc
 " (only needed if using nvm, comment out if using system NodeJS)
 " TODO: Check Me
-let g:coc_node_path = '~/.nvm/versions/node/v16.8.0/bin/node'
+"let g:coc_node_path = '~/.nvm/versions/node/v16.8.0/bin/node'
 
 " Clipboard (y/p read/write from OS clipboard)
 set clipboard=unnamedplus
