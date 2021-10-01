@@ -46,7 +46,7 @@ call plug#end()
 
 " Font
 " TODO: Check Me
-set guifont=CaskaydiaCove\ Nerd\ Font\ Mono\ Book:h12
+set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h12
 
 " Remember previous window size
 let neovide_remember_window_size = v:true
