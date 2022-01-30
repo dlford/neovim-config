@@ -11,25 +11,23 @@
 	"prettier.bracketSpacing": true,
 	"prettier.endOfLine": "lf",
 	"prettier.htmlWhitespaceSensitivity": "strict",
-	"prettier.jsxBracketSameLine": false,
 	"prettier.jsxSingleQuote": true,
 	"prettier.proseWrap": "preserve",
 	"eslint.onIgnoredFiles": "warn",
-	"eslint.options": {
-		"ignore": false,
-		"envs": ["es6", "browser", "node"],
-		"plugins": ["prettier"],
-		"baseConfig": {
-			"extends": [
-				"eslint:recommended",
-				"plugin:prettier/recommended",
-				"prettier/prettier"
-			]
-		},
-		"rules": {
-			"prettier/prettier": "error"
-		}
-	},
+  "eslint.options": {
+    "overrideConfig": {
+      "env": {"es6": true, "browser": true, "node": true},
+      "rules": {
+        "prettier/prettier": "error"
+      },
+      "plugins": ["prettier"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "prettier/prettier"
+      ]
+    }
+  },
 	"diagnostic.enable": true,
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.errorSign": "",
