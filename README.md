@@ -12,8 +12,7 @@
 - neovim >= 0.5 (Ubuntu - sudo add-apt-repository ppa:neovim-ppa/unstable)
 - nerd font (https://www.nerdfonts.com/font-downloads)
 - NodeJS >= 16
-- npm i -g yarn eslint@5 prettier eslint-plugin-prettier eslint-config-prettier
-  - (eslint 6 currently has trouble resolving plugins from global node_modules)
+- npm i -g yarn eslint prettier eslint-plugin-prettier eslint-config-prettier
 - fzf requires silversearcher-ag and ripgrep
 - OS clipboard functions require handler (e.g. xclip on linux, or win32yank on Windows)
   - download win32yank (https://github.com/equalsraf/win32yank) and put the exe in WSL at `/usr/local/bin` (and `chmod +x` it)
