@@ -292,18 +292,19 @@ if (empty($TMUX))
     set termguicolors
   endif
 else
-  " If you are working in TMUX, add these two lines to `~/.tmux.conf`
-  " set-option -ga terminal-overrides ",xterm-256color:Tc"
+  " If you are working in TMUX, add `alias tmux="tmux -u2"` to your .bashrc
+  " and add the next two lines to `~/.tmux.conf`
+  " set-option -ga terminal-overrides ",*256col*:Tc"
   " set -g default-terminal "screen-256color"
-  if &term =~ '256color'
-      " Disable Background Color Erase (BCE) so that color schemes
-      " work properly when Vim is used inside tmux and GNU screen.
-      set t_ut=
-  endif
   if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
+  endif
+  if &term =~ '256color'
+      " Disable Background Color Erase (BCE) so that color schemes
+      " work properly when Vim is used inside tmux and GNU screen.
+      set t_ut=
   endif
 endif
 
