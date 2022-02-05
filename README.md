@@ -1,4 +1,6 @@
-# Neovim Config
+# Neovim Config (DEPRICATED)
+
+Moved to https://github.com/dlford/dotfiles/tree/mjolnir/.config/nvim
 
 ## Instructions
 
